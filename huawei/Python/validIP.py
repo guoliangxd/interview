@@ -48,17 +48,11 @@ while True:
                     subAddress = subIP[0].split('.')
                     first = 0
                     second = 0
-                    if len(subAddress[0]) == 0:
-                        valid += 1
-                        continue
-                    else:
+                    if len(subAddress[0]) != 0:
                         first = int(subAddress[0])
-                    if len(subAddress[1]) == 0:
-                        valid += 1
-                        continue
-                    else:
+                    if len(subAddress[1]) != 0:
                         second = int(subAddress[1])
-                    if first >= 1 and first <= 126:
+                    if first >= 1 and first <= 127:
                         typeA += 1
                     if first >= 128 and first <= 191:
                         typeB += 1
@@ -74,7 +68,7 @@ while True:
                         priva += 1
                     if first == 192 and second == 168:
                         priva += 1
-                    if first == 127 or first < 1 or first > 255:
+                    if first < 1 or first > 255:
                         valid += 1
                 else:
                     valid += 1

@@ -1,9 +1,10 @@
 import sys
-out = []
-num = {}
+
+out = [] # 用于按顺序存储每个不重复的记录
+num = {} # 用于存储每条记录的重复次数
  
 while True:
-    input_ = sys.stdin.readline()[:-1]
+    input_ = sys.stdin.readline()[:-1].strip() #readline与input比会读取换行符,还是用try except更稳妥
     if input_ == '':
         break
     record, lines = input_.split()
@@ -19,4 +20,4 @@ while True:
         num[item] += 1
          
 for item in out[-8:]:
-    sys.stdout.write(item+' '+str(num[item])+'\n')
+    print(item+' '+str(num[item]))
